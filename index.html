@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fun Interactive Demo Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      color: white;
+      text-align: center;
+      padding: 5vh;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+
+    #typewriter {
+      font-size: 1.5em;
+      border-right: 2px solid white;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 5s steps(40, end) forwards;
+    }
+
+    @keyframes typing {
+      to { width: 100%; }
+    }
+
+    button {
+      margin-top: 2em;
+      padding: 1em 2em;
+      font-size: 1em;
+      border: none;
+      border-radius: 30px;
+      background-color: #ffffff55;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ffffff88;
+    }
+
+    #modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modalContent {
+      background: white;
+      color: black;
+      padding: 2em;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .close {
+      margin-top: 1em;
+      color: red;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌟 Welcome to the Demo World!</h1>
+  <div id="typewriter">Let's create something magical with HTML, CSS, and JavaScript...</div>
+
+  <button onclick="showQuote()">🎁 Surprise Me</button>
+
+  <div id="modal">
+    <div id="modalContent">
+      <div id="quoteText"></div>
+      <div class="close" onclick="closeModal()">Close</div>
+    </div>
+  </div>
+
+  <script>
+    const quotes = [
+      "Believe you can and you're halfway there.",
+      "Every moment is a fresh beginning.",
+      "Dream big. Start small. Act now.",
+      "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+      "Don’t wait. The time will never be just right."
+    ];
+
+    function showQuote() {
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById("quoteText").innerText = randomQuote;
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
